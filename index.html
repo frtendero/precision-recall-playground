@@ -424,10 +424,10 @@
 
                     if (this.id == "positives") {
                         push_unique(positives, ui.draggable[0])
-                        $(ui.draggable[0]).addClass('food-image')
+                        $(ui.draggable[0]).addClass('wolf')
                     } else {
                         push_unique(negatives, ui.draggable[0])
-                        $(ui.draggable[0]).addClass('not-food-image')
+                        $(ui.draggable[0]).addClass('sheep')
                     }
 
                 },
@@ -435,10 +435,10 @@
 
                     if (this.id == "positives") {
                         remove_from_array(positives, ui.draggable[0])
-                        $(ui.draggable[0]).removeClass('food-image')
+                        $(ui.draggable[0]).removeClass('wolf')
                     } else {
                         remove_from_array(negatives, ui.draggable[0])
-                        $(ui.draggable[0]).removeClass('not-food-image')
+                        $(ui.draggable[0]).removeClass('sheep')
                     }
                 }
             });
