@@ -40,19 +40,19 @@
             z-index: 10;
         }
 
-        .food-image>.label::before {
-            content: "Food"
+        .wolf-image>.label::before {
+            content: "Wolf"
         }
 
-        .food-image>.label {
+        .wolf-image>.label {
             padding: 5px;
         }
 
-        .not-food-image>.label::before {
-            content: "Not Food"
+        .sheep-image>.label::before {
+            content: "Sheep"
         }
 
-        .not-food-image>.label {
+        .sheep-image>.label {
             padding: 5px;
             background-color: #3f51b5;
         }
@@ -226,15 +226,16 @@
                 <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--9-col">
                         <h3>Be the model!</h3>
-                        <p>Pretend to be a machine learning model and predict if an image is of <span
-                                style="color: white;background-color:rgb(255, 64, 129)">Food</span> or <span
-                                style="color: white;background-color:#3f51b5">Not Food</span>. Then see how you score on
+                        <p>Pretend to be a machine learning model whose purpose is keeping the sheeps alive and thus, detect <span
+                                style="color: white;background-color:rgb(255, 64, 129)">Wolfs</span> from <span
+                                style="color: white;background-color:#3f51b5">Sheeps</span>. Then see how you score on
                             the confusion matrix! </p>
                     </div>
                 </div>
                 <div class="mdl-grid">
                     <div class="mdl-cell mdl-cell--12-col">
 
+                        # TODO: Replace restaurant icons by an icon that matches the use case
                         <!-- <h3>Predictions</h3>
                         <p>Something something do classification about stuff </p> -->
                         <div id="predictor">
@@ -266,10 +267,10 @@
                                 </div>
                                 <div id="confusion-label-vert-text">
                                     <div class="confusion-label-vert">
-                                        <div>Food</div>
+                                        <div>Wolf</div>
                                     </div>
                                     <div class="confusion-label-vert">
-                                        <div>Not Food</div>
+                                        <div>Sheep</div>
                                     </div>
                                 </div>
                             </div>
@@ -278,10 +279,10 @@
                                 <div id="predicted-label">
                                     <h4>Your Answer</h4>
                                     <div class="confusion-label">
-                                        <span>Food</span>
+                                        <span>Wolf</span>
                                     </div>
                                     <div class="confusion-label">
-                                        <span>Not Food</span>
+                                        <span>Sheep</span>
                                     </div>
                                 </div>
                                 <div class="confusion-row">
@@ -357,7 +358,7 @@
                                 <h5 class="label"></h5>
                                 <img src="images/3.jpg">
                             </div>
-                            <div class="pic ui-widget-content positive">
+                            <div class="pic ui-widget-content negative">
                                 <h5 class="label"></h5>
                                 <img src="images/4.jpg">
                             </div>
@@ -369,14 +370,22 @@
                                 <h5 class="label"></h5>
                                 <img src="images/8.jpg">
                             </div>
+                            <div class="pic ui-widget-content negative">
+                                <h5 class="label"></h5>
+                                <img src="images/9.jpg">
+                            </div>
+                            <div class="pic ui-widget-content negative">
+                                <h5 class="label"></h5>
+                                <img src="images/10.jpg">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <footer>
+            <!-- <footer>
                 <span>Hacked together by <a id="me" href="https://twitter.com/zackakil"
                         target="_blank">@ZackAkil</a></span>
-            </footer>
+            </footer> -->
         </main>
     </div>
 
