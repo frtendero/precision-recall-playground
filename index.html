@@ -256,7 +256,7 @@
 
                 <div class="mdl-grid">
 
-                    <div id="matrix-container" class="mdl-cell mdl-cell--5-col">
+                    <div id="matrix-container" class="mdl-cell mdl-cell--6-col">
                         <!-- <h3>Confusion Matrix</h3> -->
                         <div id="confusion-matrix">
                             <div id="truth-label">
@@ -304,14 +304,11 @@
                         </div>
                     </div>
 
-                    <div class="mdl-cell mdl-cell--3-col">
+                    <div class="mdl-cell mdl-cell--6-col">
                         <h4>Scores</h4>
-                        <p>Accuracy: {{this.accuracy.toFixed(DECIMAL_PLACES)}}</p>
-                        <p>Precision: {{this.precision.toFixed(DECIMAL_PLACES)}}</p>
-                        <p>Recall: {{this.recall.toFixed(DECIMAL_PLACES)}}</p>
-
-                        <!-- <p>F1: {{this.f1.toFixed(DECIMAL_PLACES)}}</p> -->
-                        <br>
+                        <p>Accuracy: {{this.accuracy.toFixed(DECIMAL_PLACES)}},&emsp;Precision: {{this.precision.toFixed(DECIMAL_PLACES)}}</p>
+                        <p>Recall: {{this.recall.toFixed(DECIMAL_PLACES)}},&ensp;&ensp;&emsp;Specificity: {{this.specificity.toFixed(DECIMAL_PLACES)}}</p>
+                        <p>Underkill: {{this.underkill.toFixed(DECIMAL_PLACES)}},&emsp;Overkill: {{this.overkill.toFixed(DECIMAL_PLACES)}}</p>
                         <div>
                             <h4>Equations</h4>
                             <p>Precision = <score v-bind:label="'TP'" v-bind:elements="tp_elements"></score> / (<score
@@ -320,12 +317,23 @@
                             </p>
                             <p>Recall = <score v-bind:label="'TP'" v-bind:elements="tp_elements"></score> / (<score
                                     v-bind:label="'TP'" v-bind:elements="tp_elements"></score> + <score
-                                    v-bind:label="'FN'" v-bind:elements="fn_elements">
-                                </score>) </p>
+                                    v-bind:label="'FN'" v-bind:elements="fn_elements"></score>)
+                            </p>
+                            <p>Specificity = <score v-bind:label="'TN'" v-bind:elements="tn_elements"></score> / (<score
+                                    v-bind:label="'TN'" v-bind:elements="tn_elements"></score> + <score
+                                    v-bind:label="'FP'" v-bind:elements="fp_elements"></score>)
+                            </p>
+                            <p>Accuracy = (<score v-bind:label="'TP'" v-bind:elements="tp_elements"></score> + <score
+                                    v-bind:label="'TN'" v-bind:elements="tn_elements"></score>) / (<score
+                                    v-bind:label="'TP'" v-bind:elements="tp_elements"></score> + <score
+                                    v-bind:label="'TN'" v-bind:elements="tn_elements"></score> + <score
+                                    v-bind:label="'FP'" v-bind:elements="fp_elements"></score> + <score
+                                    v-bind:label="'FN'" v-bind:elements="fn_elements"></score>)
+                            </p>
                         </div>
                     </div>
 
-                    <div class="mdl-cell mdl-cell--4-col">
+                    <div class="mdl-cell mdl-cell--12-col">
 
                         <!-- <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button">
                                     Good Model
@@ -544,6 +552,15 @@
                 },
                 recall: function () {
                     return (this.tp / (this.tp + this.fn))
+                },
+                specificity: function() {
+                    return (this.tn / (this.tn + this.fp))
+                },
+                underkill: function() {
+                    return (1 - this.recall)
+                },
+                overkill: function() {
+                    return (1 - this.specificity)
                 },
                 tp: function () {
                     // true positives
